@@ -1,4 +1,4 @@
-package project_sense_and_act;
+package com.sense.act;
 
 public class hello {
 
