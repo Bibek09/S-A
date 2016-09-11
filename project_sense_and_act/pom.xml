@@ -5,18 +5,81 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>project_sense_and_act</name>
   <description>project_sense_and_act</description>
-	   <dependencies>
-		  	<dependency>
+	  
+	  
+	  <build>
+			<plugins>
+	
+				 
+				<plugin>
+				    <groupId>org.apache.maven.plugins</groupId>
+				    <artifactId>maven-surefire-plugin</artifactId>
+				    <version>2.19.1</version>
+				    <configuration>
+                    	<skip>true</skip>
+                    </configuration>
+				 </plugin>
+				 
+				 
+				 <plugin>
+			     	<groupId>net.serenity-bdd.maven.plugins</groupId>
+				    <artifactId>serenity-maven-plugin</artifactId>
+				    <version>1.1.34</version>
+				    <dependencies>
+							<dependency>
+							    <groupId>net.serenity-bdd</groupId>
+							    <artifactId>serenity-core</artifactId>
+							    <version>1.1.21</version>
+							</dependency>		          			
+				    </dependencies>
+				    <executions>
+				    	<execution>
+                        <id>serenity-reports</id>
+                        <phase>post-integration-test</phase>             
+                        <goals>
+                            <goal>aggregate</goal>                       
+                        </goals>
+                    </execution>
+				    </executions>
+			     </plugin>
+				 
+				<plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-failsafe-plugin</artifactId>
+			        <version>2.19.1</version>
+					<configuration>
+                    	<includes>
+                    		<include>**/AcceptanceTestSuite.java</include>
+                    	</includes>
+                    </configuration>
+			        <executions>
+			          <execution>
+			            <goals>
+			              <goal>integration-test</goal>
+			              <goal>verify</goal>
+			            </goals>
+			          </execution>
+			        </executions>
+			     </plugin>
+			     
+			</plugins>
+	</build>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	 <dependencies>
+		  	 <dependency>
 			    <groupId>log4j</groupId>
 			    <artifactId>log4j</artifactId>
 			    <version>1.2.12</version>
 			</dependency>
-	        <dependency>
+	         <!-- <dependency>
 	            <groupId>junit</groupId>
 	            <artifactId>junit</artifactId>
 	            <version>4.12</version>
 	            <scope>test</scope>
-			</dependency>
+			</dependency>-->
 			<dependency>
 			    <groupId>net.serenity-bdd</groupId>
 			    <artifactId>serenity-jira-plugin</artifactId>
@@ -53,63 +116,5 @@
 			    <version>1.1.21</version>
 			</dependency>
 	  </dependencies>
-	  
-	  <build>
-			<plugins>
-				<plugin>
-				    <groupId>org.apache.maven.plugins</groupId>
-				    <artifactId>maven-surefire-plugin</artifactId>
-				    <version>2.19.1</version>
-				    <configuration>
-                    <includes>
-
-                        <include>**/AcceptanceTestSuite</include>                  
-                    </includes>
-                    </configuration>
-				 </plugin>
-				<plugin>
-			        <groupId>org.apache.maven.plugins</groupId>
-			        <artifactId>maven-failsafe-plugin</artifactId>
-			        <version>2.19.1</version>
-					<configuration>
-                    	<includes>
-                    		<include>**/AcceptanceTestSuite</include>
-                    	</includes>
-                    </configuration>
-			        <executions>
-			          <execution>
-			            <goals>
-			              <goal>integration-test</goal>
-			              <goal>verify</goal>
-			            </goals>
-			          </execution>
-			        </executions>
-			     </plugin>
-			     <plugin>
-			     	<groupId>net.serenity-bdd.maven.plugins</groupId>
-				    <artifactId>serenity-maven-plugin</artifactId>
-				    <version>1.1.34</version>
-				    <dependencies>
-							<dependency>
-							    <groupId>net.serenity-bdd</groupId>
-							    <artifactId>serenity-core</artifactId>
-							    <version>1.1.21</version>
-							</dependency>		          			
-				    </dependencies>
-				    <executions>
-				    	<execution>
-                        <id>serenity-reports</id>
-                        <phase>post-integration-test</phase>             
-                        <goals>
-                            <goal>aggregate</goal>                       
-                        </goals>
-                    </execution>
-				    </executions>
-			     </plugin>
-			</plugins>
-	</build>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
 </project>
  

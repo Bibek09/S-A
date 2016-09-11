@@ -20,13 +20,19 @@
 Feature: Title of your feature
   I want to use this template for my feature file
 
-  @smoketest2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+@smoketest2
+  Scenario: Title of your scenario outline1
+    Given user is on google home page
+    When search an item FinTech
+    Then results will be displayed
+      
+ ##  @smoketest1
+  ## Scenario Outline: Title of your scenario outline
+    ## Given I want to write a step with <name>
+   ##  When I check for the <value> in step
+   ##  Then I verify the <status> in step
+## 
+   ##  Examples: 
+    ##   | name  | value | status  |
+   ##    | name1 |     5 | success |
+    ##   | name2 |     7 | Fail    |

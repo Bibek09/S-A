@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(plugin={}, glue="", features="src/test/resources", tags={"@smoketest2"})
+@CucumberOptions(plugin={}, glue="", features="src/test/resources", tags={"@smoketest"})
 public class AcceptanceTestSuite {
 
 }

@@ -12,8 +12,20 @@ public class cucumberStep extends ScenarioSteps {
 
 	cucumberPage cucumberpage;
 	
+	public void LaunchApplication() {
+		cucumberpage.open();
+	}
 
+	public void search_an_item()
+	{
+		cucumberpage.searchItem();
+	}
+
+	public void results()  {
+		cucumberpage.verifyResult();
+	}
 	
+	/*
 	@Given("^I want to write a step with name(\\d+)$")
 	public void i_want_to_write_a_step_with_name(int arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
@@ -36,6 +48,6 @@ public class cucumberStep extends ScenarioSteps {
 	public void i_verify_the_Fail_in_step() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	   // throw new PendingException();
-	}
+	}*/
 
 }
